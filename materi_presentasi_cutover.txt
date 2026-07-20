@@ -1,0 +1,165 @@
+Slide 1 — Judul
+Rencana Cutover Implementasi New Application
+Migrasi Sales Force, Distribution Core, dan Warehouse
+Dari multi-environment legacy ke single integrated environment
+
+Catatan visual:
+- Gunakan ilustrasi 3 server lama menuju 1 server aplikasi baru + 1 server database baru.
+- Tambahkan tanggal presentasi dan nama tim di footer.
+
+
+Slide 2 — Latar Belakang Perubahan
+- Saat ini terdapat 3 aplikasi besar yang berjalan terpisah
+- Platform lama: PHP 5.7 dan MySQL 5.6
+- Infrastruktur dan penyimpanan tersebar di beberapa server/IP
+- Aplikasi baru telah digabung dalam 1 environment
+- Platform baru: PHP 7.4 dan MySQL 8.0
+- Testing dan perbaikan modul telah selesai
+
+Pesan utama:
+Tahap berikutnya adalah go-live terkontrol.
+
+Catatan visual:
+- Tampilkan before vs after sederhana.
+
+
+Slide 3 — Current State vs Target State
+Current State
+- Sales Force App — 10.100.10.7
+- Distribution Core — 10.100.10.28
+- Warehouse Activity — 10.100.10.28
+- Database lama tersebar
+- PHP 5.7 / MySQL 5.6
+
+Target State
+- New App terintegrasi
+- App Server — 10.100.10.11
+- DB Server — 10.100.10.12
+- PHP 7.4 / MySQL 8.0
+
+Pesan utama:
+Dari sistem terpisah menjadi sistem terintegrasi, terpusat, dan lebih modern.
+
+Catatan visual:
+- Gunakan diagram 2 kolom current vs target.
+
+
+Slide 4 — Tujuan Implementasi
+- Integrasi 3 aplikasi menjadi 1 environment
+- Meningkatkan stabilitas dan maintainability
+- Menggunakan platform yang lebih update
+- Mendukung operasional yang lebih efisien dan terkontrol
+
+Catatan visual:
+- Gunakan 4 ikon: integrasi, stabilitas, upgrade, efisiensi.
+
+
+Slide 5 — Metode Cutover yang Digunakan
+Controlled Cutover / Big Bang dengan Rollback Plan
+
+Tahapan utama:
+1. Freeze transaksi lama
+2. Backup final
+3. Final migrasi data
+4. Validasi
+5. Switch ke New App
+6. Monitoring intensif
+7. Rollback bila kritikal
+
+Pesan utama:
+Perpindahan dilakukan terencana, dengan jalur kembali bila diperlukan.
+
+Catatan visual:
+- Tampilkan flow horizontal 7 langkah.
+
+
+Slide 6 — Tahapan Implementasi
+1. Preparation
+   - Final review
+   - Freeze change
+   - Backup readiness
+   - Communication
+
+2. Cutover Execution
+   - Stop transaksi
+   - Backup final
+   - Final migration
+   - Aktivasi New App
+
+3. Validation & Go-Live
+   - Smoke test
+   - Key user validation
+   - Go / No-Go
+   - Switch access
+
+4. Hypercare
+   - Monitoring
+   - Issue handling
+   - Stabilization
+
+Catatan visual:
+- Tampilkan timeline 4 fase.
+
+
+Slide 7 — Alur Hari H Cutover
+User Stop Transaction
+↓
+Final Backup
+↓
+Migrasi Data Final
+↓
+Validasi Data & Aplikasi
+↓
+Soft Opening Key User
+↓
+Go-Live Full User
+
+Catatan kecil:
+Jika terdapat kendala kritikal, proses dihentikan dan dilakukan rollback.
+
+Catatan visual:
+- Gunakan flowchart vertikal.
+
+
+Slide 8 — Risiko Utama dan Mitigasi
+Risiko | Mitigasi
+Data tidak sesuai | Validasi dan rekonsiliasi data
+Transaksi inti gagal | Smoke test dan key user test
+Performa lambat | Monitoring server dan database
+Integrasi tidak berjalan | Validasi interface sebelum go-live
+Gangguan saat live | Rollback plan siap
+
+Pesan utama:
+Setiap risiko utama sudah disiapkan mitigasinya.
+
+Catatan visual:
+- Gunakan tabel sederhana 2 kolom atau ikon risiko vs mitigasi.
+
+
+Slide 9 — Backup Plan Jika Go-Live Terkendala
+- Old system tidak langsung dimatikan
+- Backup final dilakukan sebelum switch
+- Jika ada kendala kritikal:
+  - akses ke New App dihentikan
+  - akses user dikembalikan ke old system
+  - operasional dilanjutkan di sistem lama
+- Investigasi dilakukan sebelum penjadwalan ulang
+
+Pesan utama:
+Operasional bisnis tetap menjadi prioritas utama.
+
+Catatan visual:
+- Gunakan ilustrasi panah balik dari New App ke Old App.
+
+
+Slide 10 — Kesimpulan dan Permohonan Persetujuan
+- Aplikasi baru sudah siap secara fungsional
+- Cutover akan dilakukan dengan proses terkontrol
+- Tersedia validasi, monitoring, dan rollback plan
+- Implementasi dirancang untuk meminimalkan risiko operasional
+
+Permohonan:
+Persetujuan manajemen untuk pelaksanaan cutover sesuai jadwal.
+
+Catatan visual:
+- Gunakan ikon checklist/approval/launch.
